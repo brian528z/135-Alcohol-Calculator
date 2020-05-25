@@ -15,6 +15,8 @@ public class MainApplication extends GraphicsApplication implements ActionListen
 //	private MenuPane menu;
 //	private SettingsPane settings;
 	
+	private EnterInfoScreen enterinfo;
+	
 	
 	//Timer t;
 
@@ -28,7 +30,10 @@ public class MainApplication extends GraphicsApplication implements ActionListen
 //	}
 	public void run() 
 	{
-		setBackground(new Color(0, 0, 0));
+		setBackground(new Color(255,255,255));
+		
+		enterinfo = new EnterInfoScreen(this);
+		switchToScreen(enterinfo);
 //		music = new SoundHub(this);
 //		menu = new MenuPane(this);
 //		
