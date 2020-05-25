@@ -30,7 +30,7 @@ public class EnterInfoScreen extends GraphicsPane{
 		male = new GImage("male0.png", 100, 150);
 		female = new GImage("female0.png", 450, 150);
 		weight = new GLabel("Weight: ", 150, 350);
-		next = new GImage("next0.png", 275, 450);
+		next = new GImage("next00.png", 275, 450);
 		
 		Font mf = new Font("Arial", Font.BOLD, 20);
 		
@@ -78,6 +78,8 @@ public class EnterInfoScreen extends GraphicsPane{
 
 	private GObject obj;
 	
+	private boolean selected = false;
+	
 	@Override
 	public void mousePressed(MouseEvent e) 
 	{
@@ -85,39 +87,43 @@ public class EnterInfoScreen extends GraphicsPane{
 		
 		if(obj == next)
 		{
+			MainApplication.user.setWeight(Integer.parseInt(weightInput.getText()));
 		}
-//		else if(obj == easy)
-//		{
-//			program.switchToDraft(true , 1);
-//		}
-//		else if(obj == medium)
-//		{
-//			program.switchToDraft(true , 2);
-//		}
-//		else if(obj == hard)
-//		{
-//			program.switchToDraft(true , 3);
-//		}
+		else if (obj == male) {
+			selected = true;
+			MainApplication.user.setSex("male");
+		}
+		else if (obj == female) {
+			selected = true;
+			MainApplication.user.setSex("female");
+		}
+//		
 	}
 	
 	@Override
 	public void mouseMoved(MouseEvent e) {
 		obj = program.getElementAt(e.getX(), e.getY());
 		
-		if(obj == male) {
-			male.setImage("male1.png");
+		if (selected == false) {
+			if(obj == male) {
+				male.setImage("male1.png");
+			}
+			else if (obj == female) {
+				female.setImage("female1.png");
+			}
+			else {
+				male.setImage("male0.png");
+				female.setImage("female0.png");
+			}
 		}
-		else if (obj == female) {
-			female.setImage("female1.png");
+		else if (weightInput.getText().length() > 1) {
+			if (obj == next) {
+				next.setImage("next1.png");
+			}
+			else {
+				next.setImage("next0.png");
+			}
 		}
-		else if (obj == next) {
-			next.setImage("next1.png");
-		}
-		else {
-			next.setImage("next0.png");
-			male.setImage("male0.png");
-			female.setImage("female0.png");
 			
-		}
 	}
 }

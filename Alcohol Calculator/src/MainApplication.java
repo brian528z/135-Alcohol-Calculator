@@ -16,6 +16,7 @@ public class MainApplication extends GraphicsApplication implements ActionListen
 //	private SettingsPane settings;
 	
 	private EnterInfoScreen enterinfo;
+	public static User user;
 	
 	
 	//Timer t;
@@ -30,6 +31,8 @@ public class MainApplication extends GraphicsApplication implements ActionListen
 //	}
 	public void run() 
 	{
+		user = new User();
+		
 		setBackground(new Color(255,255,255));
 		
 		enterinfo = new EnterInfoScreen(this);
