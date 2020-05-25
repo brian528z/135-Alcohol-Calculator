@@ -16,6 +16,7 @@ public class MainApplication extends GraphicsApplication implements ActionListen
 //	private SettingsPane settings;
 	
 	private EnterInfoScreen enterinfo;
+	private LoadingScreen loadingscreen;
 	public static User user;
 	
 	
@@ -35,8 +36,8 @@ public class MainApplication extends GraphicsApplication implements ActionListen
 		
 		setBackground(new Color(255,255,255));
 		
-		enterinfo = new EnterInfoScreen(this);
-		switchToScreen(enterinfo);
+		loadingscreen = new LoadingScreen(this);
+		switchToScreen(loadingscreen);
 //		music = new SoundHub(this);
 //		menu = new MenuPane(this);
 //		

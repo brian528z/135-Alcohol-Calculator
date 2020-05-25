@@ -19,6 +19,7 @@ public class EnterInfoScreen extends GraphicsPane{
 	private GLabel weight;
 	private GImage next;
 	
+	private GImage bg;
 	
 	private TextField weightInput;
 	
@@ -26,11 +27,12 @@ public class EnterInfoScreen extends GraphicsPane{
 		super();
 		program = app;
 		
+		bg = new GImage("bg2.png", 0,0);
 		title = new GLabel("Enter Information", 250, 50);
-		male = new GImage("male0.png", 100, 150);
-		female = new GImage("female0.png", 450, 150);
+		male = new GImage("male0.png", 125, 150);
+		female = new GImage("female0.png", 475, 150);
 		weight = new GLabel("Weight: ", 150, 350);
-		next = new GImage("next00.png", 275, 450);
+		next = new GImage("next00.png", 325, 450);
 		
 		Font mf = new Font("Arial", Font.BOLD, 20);
 		
@@ -57,6 +59,7 @@ public class EnterInfoScreen extends GraphicsPane{
 	@Override
 	public void showContents() 
 	{
+		program.add(bg);
 		program.add(title);
 		program.add(male);
 		program.add(female);

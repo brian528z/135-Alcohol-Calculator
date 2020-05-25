@@ -3,16 +3,22 @@ import java.awt.event.MouseEvent;
 import acm.graphics.GImage;
 import acm.graphics.GObject;
 
-public class LoadingScreen extends GraphicsPane{
+public class LoadingScreen extends GraphicsPane {
 	private MainApplication program; 
 
-	//private GImage easy;
+	private GImage bg;
+	private GImage title;
+	private EnterInfoScreen EnterInfoScreen;
 	
 	
 	public LoadingScreen(MainApplication app) {
 		super();
 		program = app;
 		
+		bg = new GImage("bg2.png", 0, 0);
+		title = new GImage("title.png", 100, 100);
+		
+		EnterInfoScreen = new EnterInfoScreen(app);
 		
 //		dif = new GImage("TitleImage/TITLE_DIFFICULTY.png", 50, 25);
 //		dif.setSize(500, 50);
@@ -28,6 +34,8 @@ public class LoadingScreen extends GraphicsPane{
 	@Override
 	public void showContents() 
 	{
+		program.add(bg);
+		program.add(title);
 //		program.add(X);
 //		program.add(easy);
 //		program.add(medium);
@@ -38,6 +46,8 @@ public class LoadingScreen extends GraphicsPane{
 	@Override
 	public void hideContents() 
 	{
+		program.add(bg);
+		program.add(title);
 //		program.remove(X);
 //		program.remove(easy);
 //		program.remove(medium);
@@ -50,6 +60,7 @@ public class LoadingScreen extends GraphicsPane{
 	@Override
 	public void mousePressed(MouseEvent e) 
 	{
+		program.switchToScreen(EnterInfoScreen);
 //		obj = program.getElementAt(e.getX(), e.getY());
 //		
 //		if(obj == X)
