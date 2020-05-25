@@ -11,7 +11,6 @@ import acm.graphics.GObject;
 public class EnterInfoScreen extends GraphicsPane{
 	private MainApplication program; 
 
-	//private GImage easy;
 	
 	private GLabel title;
 	private GImage male;
@@ -45,15 +44,6 @@ public class EnterInfoScreen extends GraphicsPane{
 		weightInput.setSize(100,50);
 		weightInput.setFont(new Font("Arial", Font.BOLD, 40));
 		
-//		dif = new GImage("TitleImage/TITLE_DIFFICULTY.png", 50, 25);
-//		dif.setSize(500, 50);
-//	
-//		X = new GButton("X",750, 0, 50, 50);
-//		X.setFillColor(Color.RED);
-//		
-//		easy = new GImage("Button/EASY0.png", 50, 150);
-//		medium = new GImage("Button/MEDIUM0.png",300, 150);
-//		hard = new GImage("Button/HARD0.png", 550, 150);
 	}
 
 	@Override
@@ -100,7 +90,6 @@ public class EnterInfoScreen extends GraphicsPane{
 			selected = true;
 			MainApplication.user.setSex("female");
 		}
-//		
 	}
 	
 	@Override
