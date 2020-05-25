@@ -17,6 +17,7 @@ public class EnterInfoScreen extends GraphicsPane{
 	private GImage male;
 	private GImage female;
 	private GLabel weight;
+	private GImage next;
 	
 	
 	private TextField weightInput;
@@ -29,12 +30,11 @@ public class EnterInfoScreen extends GraphicsPane{
 		male = new GImage("male0.png", 100, 150);
 		female = new GImage("female0.png", 450, 150);
 		weight = new GLabel("Weight: ", 150, 350);
+		next = new GImage("next0.png", 275, 450);
 		
 		Font mf = new Font("Arial", Font.BOLD, 20);
 		
 		title.setFont(new Font("Arial", Font.BOLD, 35));
-//		male.setFont(mf);
-//		female.setFont(mf);
 		weight.setFont(mf);
 		
 		
@@ -62,11 +62,7 @@ public class EnterInfoScreen extends GraphicsPane{
 		program.add(female);
 		program.add(weight);
 		program.add(weightInput);
-//		program.add(X);
-//		program.add(easy);
-//		program.add(medium);
-//		program.add(hard);
-//		program.add(dif);
+		program.add(next);
 	}
 
 	@Override
@@ -77,11 +73,7 @@ public class EnterInfoScreen extends GraphicsPane{
 		program.remove(female);
 		program.remove(weight);
 		program.remove(weightInput);
-//		program.remove(X);
-//		program.remove(easy);
-//		program.remove(medium);
-//		program.remove(hard);
-//		program.remove(dif);
+		program.remove(next);
 	}
 
 	private GObject obj;
@@ -89,12 +81,11 @@ public class EnterInfoScreen extends GraphicsPane{
 	@Override
 	public void mousePressed(MouseEvent e) 
 	{
-//		obj = program.getElementAt(e.getX(), e.getY());
-//		
-//		if(obj == X)
-//		{
-//			program.startGame();
-//		}
+		obj = program.getElementAt(e.getX(), e.getY());
+		
+		if(obj == next)
+		{
+		}
 //		else if(obj == easy)
 //		{
 //			program.switchToDraft(true , 1);
@@ -119,7 +110,11 @@ public class EnterInfoScreen extends GraphicsPane{
 		else if (obj == female) {
 			female.setImage("female1.png");
 		}
+		else if (obj == next) {
+			next.setImage("next1.png");
+		}
 		else {
+			next.setImage("next0.png");
 			male.setImage("male0.png");
 			female.setImage("female0.png");
 			
