@@ -10,6 +10,8 @@ public class LoadingScreen extends GraphicsPane {
 	private GImage title;
 	private EnterInfoScreen EnterInfoScreen;
 	
+	private GImage start;
+	
 	
 	public LoadingScreen(MainApplication app) {
 		super();
@@ -17,7 +19,7 @@ public class LoadingScreen extends GraphicsPane {
 		
 		bg = new GImage("bg2.png", 0, 0);
 		title = new GImage("title.png", 100, 100);
-		
+		start = new GImage("start0.png", 285, 470);
 		EnterInfoScreen = new EnterInfoScreen(app);
 		
 //		dif = new GImage("TitleImage/TITLE_DIFFICULTY.png", 50, 25);
@@ -36,6 +38,7 @@ public class LoadingScreen extends GraphicsPane {
 	{
 		program.add(bg);
 		program.add(title);
+		program.add(start);
 //		program.add(X);
 //		program.add(easy);
 //		program.add(medium);
@@ -46,8 +49,9 @@ public class LoadingScreen extends GraphicsPane {
 	@Override
 	public void hideContents() 
 	{
-		program.add(bg);
-		program.add(title);
+		program.remove(bg);
+		program.remove(title);
+		program.remove(start);
 //		program.remove(X);
 //		program.remove(easy);
 //		program.remove(medium);
@@ -60,45 +64,22 @@ public class LoadingScreen extends GraphicsPane {
 	@Override
 	public void mousePressed(MouseEvent e) 
 	{
-		program.switchToScreen(EnterInfoScreen);
-//		obj = program.getElementAt(e.getX(), e.getY());
-//		
-//		if(obj == X)
-//		{
-//			program.startGame();
-//		}
-//		else if(obj == easy)
-//		{
-//			program.switchToDraft(true , 1);
-//		}
-//		else if(obj == medium)
-//		{
-//			program.switchToDraft(true , 2);
-//		}
-//		else if(obj == hard)
-//		{
-//			program.switchToDraft(true , 3);
-//		}
+		obj = program.getElementAt(e.getX(), e.getY());
+		
+		if(obj == start) {
+			program.switchToScreen(EnterInfoScreen);
+		}
 	}
 	
 	@Override
 	public void mouseMoved(MouseEvent e) {
-//		obj = program.getElementAt(e.getX(), e.getY());
-//		
-//		if(obj == easy) {
-//			easy.setImage("Button/EASY1.png");
-//		}
-//		else if (obj == medium) {
-//			medium.setImage("Button/MEDIUM1.png");
-//		}
-//		else if (obj == hard) {
-//			hard.setImage("Button/HARD1.png");
-//		}
-//		else {
-//			easy.setImage("Button/EASY0.png");
-//			medium.setImage("Button/MEDIUM0.png");
-//			hard.setImage("Button/HARD0.png");
-//			
-//		}
+		obj = program.getElementAt(e.getX(), e.getY());
+		
+		if (obj == start) {
+			start.setImage("start1.png");
+		}
+		else {
+			start.setImage("start0.png");
+		}
 	}
 }
