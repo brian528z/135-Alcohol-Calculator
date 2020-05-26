@@ -8,6 +8,7 @@ public class LoadingScreen extends GraphicsPane {
 
 	private GImage bg;
 	private GImage title;
+	private GImage drinks;
 	private EnterInfoScreen EnterInfoScreen;
 	
 	private GImage start;
@@ -18,7 +19,8 @@ public class LoadingScreen extends GraphicsPane {
 		program = app;
 		
 		bg = new GImage("bg2.png", 0, 0);
-		title = new GImage("title.png", 100, 100);
+		drinks = new GImage("title_image.png", 300, 250);
+		title = new GImage("title3.png", 100, 20);
 		start = new GImage("start0.png", 285, 470);
 		EnterInfoScreen = new EnterInfoScreen(app);
 	}
@@ -29,6 +31,7 @@ public class LoadingScreen extends GraphicsPane {
 		program.add(bg);
 		program.add(title);
 		program.add(start);
+		program.add(drinks);
 	}
 
 	@Override
@@ -37,6 +40,7 @@ public class LoadingScreen extends GraphicsPane {
 		program.remove(bg);
 		program.remove(title);
 		program.remove(start);
+		program.remove(drinks);
 	}
 
 	private GObject obj;

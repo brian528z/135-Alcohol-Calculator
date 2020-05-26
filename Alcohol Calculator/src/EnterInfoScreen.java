@@ -27,16 +27,19 @@ public class EnterInfoScreen extends GraphicsPane{
 		program = app;
 		
 		bg = new GImage("bg2.png", 0,0);
-		title = new GLabel("Enter Information", 250, 50);
+		title = new GLabel("ENTER INFORMATION", 225, 50);
 		male = new GImage("male0.png", 125, 150);
 		female = new GImage("female0.png", 475, 150);
-		weight = new GLabel("Weight: ", 150, 350);
+		weight = new GLabel("WEIGHT : ", 150, 350);
 		next = new GImage("next00.png", 325, 450);
 		
 		Font mf = new Font("Arial", Font.BOLD, 20);
 		
 		title.setFont(new Font("Arial", Font.BOLD, 35));
-		weight.setFont(mf);
+		title.setColor(new Color(255,255,255));
+		weight.setFont(new Font("Arial", Font.BOLD, 35));
+		weight.setColor(new Color(255,255,255));
+		
 		
 		
 		weightInput = new TextField();
