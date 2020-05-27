@@ -49,6 +49,14 @@ public class EnterDrinkScreen extends GraphicsPane{
 	private GImage customAdd;
 	private GImage customSub;
 	
+	private GLabel drinkingTimeLabel;
+	private GLabel drinkingTime;
+	private GLabel hr;
+	private GImage timeAdd;
+	private GImage timeSub;
+	//Total Calories, BAC Level, TIme for Breakdown
+	
+	
 	private GImage bg;
 	
 	private TextField weightInput;
@@ -154,6 +162,18 @@ public class EnterDrinkScreen extends GraphicsPane{
 		
 		customAdd = new GImage("arrowUP.png", 750 , 200);
 		customSub = new GImage("arrowDOWN.png", 750, 250);
+		
+		drinkingTimeLabel = new GLabel("DRINKING TIME :", 210, 350);
+		drinkingTimeLabel.setFont(new Font("Arial", Font.BOLD, 35));
+		
+		drinkingTime = new GLabel("0.0", 560, 350);
+		drinkingTime.setFont(new Font("Arial", Font.BOLD, 35));
+		
+		hr = new GLabel("Hr", 625, 350);
+		hr.setFont(new Font("Arial", Font.BOLD, 35));
+		
+		timeSub = new GImage("minus.png", 510, 315);
+		timeAdd = new GImage("plus.png", 680, 315);
 
 	}
 
@@ -189,6 +209,11 @@ public class EnterDrinkScreen extends GraphicsPane{
 		program.add(shotSub);
 		program.add(customAdd);
 		program.add(customSub);
+		program.add(drinkingTimeLabel);
+		program.add(drinkingTime);
+		program.add(timeAdd);
+		program.add(timeSub);
+		program.add(hr);
 		
 	}
 
@@ -222,6 +247,11 @@ public class EnterDrinkScreen extends GraphicsPane{
 		program.remove(wineSub);
 		program.remove(customAdd);
 		program.remove(customSub);
+		program.remove(drinkingTimeLabel);
+		program.remove(drinkingTime);
+		program.remove(timeAdd);
+		program.remove(timeSub);
+		program.remove(hr);
 	}
 
 	private GObject obj;
@@ -262,6 +292,15 @@ public class EnterDrinkScreen extends GraphicsPane{
 		else if (obj == customSub) {
 			if (Integer.parseInt(customCount.getLabel()) > 0) {
 				customCount.setLabel(Integer.toString(Integer.parseInt(customCount.getLabel()) - 1));
+			}
+		}
+		
+		else if (obj == timeAdd) {
+			drinkingTime.setLabel(Double.toString(Double.parseDouble(drinkingTime.getLabel()) + 0.5));
+		}
+		else if (obj == timeSub) {
+			if (Double.parseDouble(drinkingTime.getLabel()) > 0.0) {
+				drinkingTime.setLabel(Double.toString(Double.parseDouble(drinkingTime.getLabel()) - 0.5));
 			}
 		}
 		
