@@ -56,6 +56,14 @@ public class EnterDrinkScreen extends GraphicsPane{
 	private GImage timeSub;
 	//Total Calories, BAC Level, TIme for Breakdown
 	
+	private GLabel totalCaloriesLabel;
+	private GLabel bacLabel;
+	private GLabel breakdownLabel;
+	
+	private GLabel totalCalories;
+	private GLabel bac;
+	private GLabel breakdown;
+	
 	
 	private GImage bg;
 	
@@ -174,6 +182,15 @@ public class EnterDrinkScreen extends GraphicsPane{
 		
 		timeSub = new GImage("minus.png", 510, 315);
 		timeAdd = new GImage("plus.png", 680, 315);
+		
+		totalCaloriesLabel = new GLabel("TOTAL CALORIES : ", 150, 420);
+		totalCaloriesLabel.setFont(new Font("Arial", Font.BOLD, 35));
+		
+		bacLabel = new GLabel("BLOOD ALCOHOL CONTENT : ", 150, 460);
+		bacLabel.setFont(new Font("Arial", Font.BOLD, 35));
+		
+		breakdownLabel = new GLabel("TIME FOR BREAKDOWN :", 150, 500);
+		breakdownLabel.setFont(new Font("Arial", Font.BOLD, 35));
 
 	}
 
@@ -214,6 +231,9 @@ public class EnterDrinkScreen extends GraphicsPane{
 		program.add(timeAdd);
 		program.add(timeSub);
 		program.add(hr);
+		program.add(totalCaloriesLabel);
+		program.add(bacLabel);
+		program.add(breakdownLabel);
 		
 	}
 
@@ -252,6 +272,9 @@ public class EnterDrinkScreen extends GraphicsPane{
 		program.remove(timeAdd);
 		program.remove(timeSub);
 		program.remove(hr);
+		program.remove(totalCaloriesLabel);
+		program.remove(bacLabel);
+		program.remove(breakdownLabel);
 	}
 
 	private GObject obj;
