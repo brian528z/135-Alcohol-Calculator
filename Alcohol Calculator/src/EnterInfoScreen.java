@@ -22,6 +22,8 @@ public class EnterInfoScreen extends GraphicsPane{
 	
 	private TextField weightInput;
 	
+	private EnterDrinkScreen drinkscreen;
+	
 	public EnterInfoScreen(MainApplication app) {
 		super();
 		program = app;
@@ -47,6 +49,7 @@ public class EnterInfoScreen extends GraphicsPane{
 		weightInput.setSize(100,50);
 		weightInput.setFont(new Font("Arial", Font.BOLD, 40));
 		
+		drinkscreen = new EnterDrinkScreen(app);
 	}
 
 	@Override
@@ -75,23 +78,27 @@ public class EnterInfoScreen extends GraphicsPane{
 	private GObject obj;
 	
 	private boolean selected = false;
+	private String choice = "";
 	
 	@Override
 	public void mousePressed(MouseEvent e) 
 	{
 		obj = program.getElementAt(e.getX(), e.getY());
 		
-		if(obj == next)
+		if( (obj == next) && (selected == true) && (weightInput.getText().length() > 1))
 		{
 			MainApplication.user.setWeight(Integer.parseInt(weightInput.getText()));
+			MainApplication.user.setSex(choice);
+			
+			program.switchToScreen(drinkscreen);
 		}
 		else if (obj == male) {
 			selected = true;
-			MainApplication.user.setSex("male");
+			choice = "male";
 		}
 		else if (obj == female) {
 			selected = true;
-			MainApplication.user.setSex("female");
+			choice = "female";
 		}
 	}
 	
@@ -111,7 +118,26 @@ public class EnterInfoScreen extends GraphicsPane{
 				female.setImage("female0.png");
 			}
 		}
-		else if (weightInput.getText().length() > 1) {
+		else {
+			if (choice == "male") {
+				if (obj == female) {
+					female.setImage("female1.png");
+				}
+				else {
+					female.setImage("female0.png");
+				}
+			}
+			else if (choice == "female") {
+				if (obj == male) {
+					male.setImage("male1.png");
+				}
+				else {
+					male.setImage("male0.png");
+				}
+			}
+		}
+		
+		if (weightInput.getText().length() > 1) {
 			if (obj == next) {
 				next.setImage("next1.png");
 			}
