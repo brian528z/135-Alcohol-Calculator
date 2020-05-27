@@ -4,7 +4,7 @@
 Simple Program that provides useful information when drinking alcohol
 
 
-
+How to Run: Mainapplication.java --> Run as Java applet
 
 
 
