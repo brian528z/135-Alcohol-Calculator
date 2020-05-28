@@ -17,6 +17,9 @@ public class MainApplication extends GraphicsApplication implements ActionListen
 	
 	private EnterInfoScreen enterinfo;
 	private LoadingScreen loadingscreen;
+	private EnterDrinkScreen drinkscreen;
+	private SettingsScreen settingsscreen;
+	
 	public static User user;
 	
 	
@@ -37,7 +40,11 @@ public class MainApplication extends GraphicsApplication implements ActionListen
 		setBackground(new Color(255,255,255));
 		
 		loadingscreen = new LoadingScreen(this);
-		switchToScreen(loadingscreen);
+		enterinfo = new EnterInfoScreen(this);
+		drinkscreen = new EnterDrinkScreen(this);
+		settingsscreen = new SettingsScreen(this);
+		
+		switchToLoading();
 //		music = new SoundHub(this);
 //		menu = new MenuPane(this);
 //		
@@ -52,11 +59,22 @@ public class MainApplication extends GraphicsApplication implements ActionListen
 //		t.start();
 //		fxToggle=true;
 	}
+
+	public void switchToLoading() {
+		switchToScreen(loadingscreen);
+	}
 	
-//	public void switchToMenu() 
-//	{
-//		switchToScreen(menu);
-//	}
+	public void switchToEnterInfo() {
+		switchToScreen(enterinfo);
+	}
+	
+	public void switchToEnterDrink() {
+		switchToScreen(drinkscreen);
+	}
+	
+	public void switchToSettings() {
+		switchToScreen(settingsscreen);
+	}
 	
 	@Override
 	public void actionPerformed(ActionEvent e) {
