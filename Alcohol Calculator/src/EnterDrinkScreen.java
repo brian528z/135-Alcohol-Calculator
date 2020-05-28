@@ -54,7 +54,6 @@ public class EnterDrinkScreen extends GraphicsPane{
 	private GLabel hr;
 	private GImage timeAdd;
 	private GImage timeSub;
-	//Total Calories, BAC Level, TIme for Breakdown
 	
 	private GLabel totalCaloriesLabel;
 	private GLabel bacLabel;
@@ -64,6 +63,13 @@ public class EnterDrinkScreen extends GraphicsPane{
 	private GLabel bac;
 	private GLabel breakdown;
 	
+	private GRect caloriesBox;
+	private GRect bacBox;
+	private GRect breakdownBox;
+	
+	private GImage settings;
+	
+	private SettingsScreen settingsScreen;
 	
 	private GImage bg;
 	
@@ -171,26 +177,46 @@ public class EnterDrinkScreen extends GraphicsPane{
 		customAdd = new GImage("arrowUP.png", 750 , 200);
 		customSub = new GImage("arrowDOWN.png", 750, 250);
 		
-		drinkingTimeLabel = new GLabel("DRINKING TIME :", 210, 350);
+		drinkingTimeLabel = new GLabel("DRINKING TIME :", 160, 350);
 		drinkingTimeLabel.setFont(new Font("Arial", Font.BOLD, 35));
 		
-		drinkingTime = new GLabel("0.0", 560, 350);
+		drinkingTime = new GLabel("0.0", 510, 350);
 		drinkingTime.setFont(new Font("Arial", Font.BOLD, 35));
 		
-		hr = new GLabel("Hr", 625, 350);
+		hr = new GLabel("Hr", 575, 350);
 		hr.setFont(new Font("Arial", Font.BOLD, 35));
 		
-		timeSub = new GImage("minus.png", 510, 315);
-		timeAdd = new GImage("plus.png", 680, 315);
+		timeSub = new GImage("minus.png", 460, 315);
+		timeAdd = new GImage("plus.png", 630, 315);
 		
-		totalCaloriesLabel = new GLabel("TOTAL CALORIES : ", 150, 420);
+		totalCaloriesLabel = new GLabel("TOTAL CALORIES CONSUMED : ", 30, 540);
 		totalCaloriesLabel.setFont(new Font("Arial", Font.BOLD, 35));
 		
-		bacLabel = new GLabel("BLOOD ALCOHOL CONTENT : ", 150, 460);
+		bacLabel = new GLabel("BLOOD ALCOHOL CONTENT    : ", 30, 420);
 		bacLabel.setFont(new Font("Arial", Font.BOLD, 35));
 		
-		breakdownLabel = new GLabel("TIME FOR BREAKDOWN :", 150, 500);
+		breakdownLabel = new GLabel("AVG TIME FOR BREAKDOWN   :", 30, 480);
 		breakdownLabel.setFont(new Font("Arial", Font.BOLD, 35));
+		
+		caloriesBox = new GRect(20,500,540,50);
+		caloriesBox.setFillColor(new Color(230,249,255));
+		caloriesBox.setColor(new Color(230,249,255));
+		caloriesBox.setFilled(true);
+		
+		bacBox = new GRect(20,380,540,50);
+		bacBox.setFillColor(new Color(230,249,255));
+		bacBox.setColor(new Color(230,249,255));
+		bacBox.setFilled(true);
+		
+		breakdownBox = new GRect(20,440,540,50);
+		breakdownBox.setFillColor(new Color(230,249,255));
+		breakdownBox.setColor(new Color(230,249,255));
+		breakdownBox.setFilled(true);
+		
+		settings = new GImage("settings0.png", 650,5);
+		settings.setSize(120,50);
+		
+		settingsScreen = new SettingsScreen(app);
 
 	}
 
@@ -231,9 +257,15 @@ public class EnterDrinkScreen extends GraphicsPane{
 		program.add(timeAdd);
 		program.add(timeSub);
 		program.add(hr);
+		
+		program.add(caloriesBox);
+		program.add(bacBox);
+		program.add(breakdownBox);
+		
 		program.add(totalCaloriesLabel);
 		program.add(bacLabel);
 		program.add(breakdownLabel);
+		program.add(settings);
 		
 	}
 
@@ -275,6 +307,10 @@ public class EnterDrinkScreen extends GraphicsPane{
 		program.remove(totalCaloriesLabel);
 		program.remove(bacLabel);
 		program.remove(breakdownLabel);
+		program.remove(caloriesBox);
+		program.remove(bacBox);
+		program.remove(breakdownBox);
+		program.remove(settings);
 	}
 
 	private GObject obj;
@@ -327,12 +363,25 @@ public class EnterDrinkScreen extends GraphicsPane{
 			}
 		}
 		
+		else if (obj == settings) {
+			program.switchToScreen(settingsScreen);
+		}
+		
 		
 	}
 	
 	@Override
 	public void mouseMoved(MouseEvent e) {
-//		obj = program.getElementAt(e.getX(), e.getY());
+		obj = program.getElementAt(e.getX(), e.getY());
+		
+		if (obj == settings) {
+			settings.setImage("settings1.png");
+			settings.setSize(120,50);
+		}
+		else {
+			settings.setImage("settings0.png");
+			settings.setSize(120,50);
+		}
 		
 		
 			
