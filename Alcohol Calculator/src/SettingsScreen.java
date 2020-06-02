@@ -14,7 +14,7 @@ public class SettingsScreen extends GraphicsPane {
 		super();
 		program = app;
 		
-		bg = new GImage("bg2.png", 0, 0);
+		bg = new GImage("bg2.PNG", 0, 0);
 		edit = new GImage("edit0.png", 300,200);
 		list = new GImage("list0.png", 320, 400);
 	}

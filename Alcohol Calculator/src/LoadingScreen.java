@@ -18,7 +18,7 @@ public class LoadingScreen extends GraphicsPane {
 		super();
 		program = app;
 		
-		bg = new GImage("bg2.png", 0, 0);
+		bg = new GImage("bg2.PNG", 0, 0);
 		drinks = new GImage("title_image.png", 300, 250);
 		title = new GImage("title3.png", 100, 20);
 		start = new GImage("start0.png", 285, 470);

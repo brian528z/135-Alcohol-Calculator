@@ -79,7 +79,7 @@ public class EnterDrinkScreen extends GraphicsPane{
 		super();
 		program = app;
 		
-		bg = new GImage("bg2.png", 0,0);
+		bg = new GImage("bg2.PNG", 0,0);
 		title = new GLabel("ENTER DRINKS", 275, 50);
 		title.setFont(new Font("Arial", Font.BOLD, 35));
 		title.setColor(new Color(255,255,255));

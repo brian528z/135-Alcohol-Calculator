@@ -7,6 +7,7 @@ import javax.swing.Timer;
 
 import acm.graphics.GImage;
 import acm.io.IODialog;
+import acm.program.Program;
 
 public class MainApplication extends GraphicsApplication implements ActionListener{
 	public static final int WINDOW_WIDTH = 800;
@@ -33,6 +34,7 @@ public class MainApplication extends GraphicsApplication implements ActionListen
 //	public MenuPane getMenu() {
 //		return menu;
 //	}
+	
 	public void run() 
 	{
 		user = new User();
@@ -45,8 +47,6 @@ public class MainApplication extends GraphicsApplication implements ActionListen
 		settingsscreen = new SettingsScreen(this);
 		
 		switchToLoading();
-//		music = new SoundHub(this);
-//		menu = new MenuPane(this);
 //		
 //		settings = new SettingsPane(this);
 //		credits = new CreditsPane(this);
@@ -58,6 +58,13 @@ public class MainApplication extends GraphicsApplication implements ActionListen
 //		t = new Timer(10, this);
 //		t.start();
 //		fxToggle=true;
+	}
+	
+	public static void main(String[] args) {
+//		MainApplication a = new MainApplication();
+//		a.run();
+		
+		new MainApplication().start(args);
 	}
 
 	public void switchToLoading() {
@@ -80,6 +87,8 @@ public class MainApplication extends GraphicsApplication implements ActionListen
 	public void actionPerformed(ActionEvent e) {
 		init();
 	}
+	
+
 //	@Override 
 //	public void keyPressed(KeyEvent e){
 //		if(e.getKeyCode()==KeyEvent.VK_ENTER) {

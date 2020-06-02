@@ -28,7 +28,7 @@ public class EnterInfoScreen extends GraphicsPane{
 		super();
 		program = app;
 		
-		bg = new GImage("bg2.png", 0,0);
+		bg = new GImage("bg2.PNG", 0,0);
 		title = new GLabel("ENTER INFORMATION", 225, 50);
 		male = new GImage("male0.png", 125, 150);
 		female = new GImage("female0.png", 475, 150);
