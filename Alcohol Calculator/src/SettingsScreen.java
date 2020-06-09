@@ -21,11 +21,11 @@ public class SettingsScreen extends GraphicsPane {
 		edit = new GImage("edit0.png", 300,200);
 		list = new GImage("list0.png", 320, 400);
 		
-		list1 = new GImage("alcohol1.png",0,0);
+		list1 = new GImage("alcohol1.PNG",0,0);
 		list1.setSize(800, 600);
 		list1.setVisible(false);
 		
-		list2 = new GImage("alcohol2.png", 0,0);
+		list2 = new GImage("alcohol2.PNG", 0,0);
 		list2.setSize(800,600);
 		list2.setVisible(false);
 	}
